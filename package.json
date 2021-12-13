@@ -1,11 +1,12 @@
 {
-  "name": "tutorial-react-webpack",
+  "name": "NBA Draft Projections",
   "version": "1.0.0",
   "description": "Configuring webpack for React",
-  "main": "index.js",
+  "main": "server/server.js",
   "scripts": {
-    "build": "webpack",
-    "dev": "webpack serve"
+    "build": "cross-env NODE_ENV=production webpack-dev-server --open --hot --progress",
+    "dev": "concurrently \"cross-env NODE_ENV=development webpack-dev-server --open --hot --progress \" \"nodemon ./server/server.js\"",
+    "server": "nodemon ./server/server.js"
   },
   "keywords": [],
   "author": "",
@@ -14,7 +15,10 @@
     "ag-grid-community": "^26.2.0",
     "ag-grid-react": "^26.2.0",
     "bootstrap": "^5.1.3",
+    "cross-env": "^7.0.3",
     "css-loader": "^6.5.1",
+    "express": "^4.17.1",
+    "pg": "^8.7.1",
     "postcss-loader": "^6.2.1",
     "react": "^17.0.2",
     "react-bootstrap": "^2.0.3",
@@ -31,6 +35,7 @@
     "babel-loader": "^8.2.3",
     "file-loader": "^6.2.0",
     "html-webpack-plugin": "^5.5.0",
+    "nodemon": "^2.0.15",
     "sass": "^1.44.0",
     "sass-loader": "^12.4.0",
     "webpack": "^5.65.0",

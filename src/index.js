@@ -5,6 +5,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Auction from "./components/auction";
 import Snake from "./components/snake";
+import Playerpage from "./components/playerpage"
 
 import 'ag-grid-community/dist/styles/ag-grid.css';
 import 'ag-grid-community/dist/styles/ag-theme-alpine.css';
@@ -15,6 +16,7 @@ ReactDOM.render(
       <Route path="/" element={<App />} />
       <Route path="/auction" element={<Auction />} />
       <Route path="/snake" element={<Snake />} />
+      <Route path="/playerpage" element={<Playerpage />} />
     </Routes>
   </BrowserRouter>,
   document.getElementById("app")

@@ -1,19 +1,37 @@
 const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
+const webpack = require("webpack");
 
 module.exports = {
   mode: "development",
-  entry: "/src/index.js",
-  output: { path: path.resolve(__dirname, "dist") },
+  entry: ["./src/index.js"],
+  output: {
+    path: path.resolve(__dirname, "dist"),
+    publicPath: "/",
+    filename: "main.js",
+  },
   devServer: {
     static: {
-      publicPath: "/dist",
+      publicPath: path.resolve(__dirname, "dist"),
+    },
+    // host: "localhost",
+    // // enable HMR on the devServer
+    // hot: true,
+
+    // // fallback to root for other urls
+    // historyApiFallback: true,
+
+    // headers: { "Access-Control-Allow-Origin": "*" },
+    proxy: {
+      "/api/": {
+        target: "http://localhost:3000/",
+        secure: false,
+      },
     },
   },
   plugins: [
     new HtmlWebpackPlugin({
-      title: "development",
-      template: "/src/index.html",
+      template: "./src/index.html",
     }),
   ],
   module: {

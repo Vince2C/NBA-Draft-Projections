@@ -4,12 +4,12 @@ import image from "./dametime.png";
 import { useNavigate } from "react-router-dom";
 
 export default function Mainpage() {
-  let navigate = useNavigate();
+  const navigate = useNavigate();
 
   return (
     <div>
       <h1>NBA Draft Projections 2022</h1>
-      <h2>by Vince</h2>
+      <h2>Show your friends who's boss</h2>
       <div className="mb-2">
         <Button onClick={ () => {navigate("/snake")}} variant="primary" size="lg">
           Snake Draft

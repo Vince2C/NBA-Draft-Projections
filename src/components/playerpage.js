@@ -6,13 +6,12 @@ import { useNavigate } from "react-router-dom";
 import "ag-grid-community/dist/styles/ag-grid.css";
 import "ag-grid-community/dist/styles/ag-theme-alpine.css";
 
-export default function Snake() {
-  const navigate = useNavigate()
-  const onCellClicked = (params) => navigate("/playerpage");
+export default function Playerpage() {
+  const navigate = useNavigate();
 
   const rowData = [
     {
-      rank: "1",
+      year: "1",
       player: "Stephen Curry",
       points: 27.5,
       assists: 6.3,
@@ -25,7 +24,7 @@ export default function Snake() {
       turnovers: 3.2,
     },
     {
-      rank: "2",
+      year: "2",
       player: "Nikola Jokic",
       points: 27.5,
       assists: 6.3,
@@ -38,7 +37,7 @@ export default function Snake() {
       turnovers: 3.2,
     },
     {
-      rank: "3",
+      year: "3",
       player: "Jimmy Butler",
       points: 27.5,
       assists: 6.3,
@@ -52,11 +51,11 @@ export default function Snake() {
     },
   ];
   return (
-    <div style={{ padding: "1rem 0" }} style={{ height: '100%', width: '100%' }}>
-      <h2>Snake</h2>
+    <div style={{ padding: "1rem 0" }}>
+      <h2>Player Page</h2>
       <div className="ag-theme-alpine" style={{ height: 1000, width: 2400 }}>
-        <AgGridReact rowData={rowData} onCellClicked={onCellClicked}>
-          <AgGridColumn field="rank"></AgGridColumn>
+        <AgGridReact rowData={rowData} >
+          <AgGridColumn field="year"></AgGridColumn>
           <AgGridColumn field="player"></AgGridColumn>
           <AgGridColumn field="points"></AgGridColumn>
           <AgGridColumn field="assists"></AgGridColumn>
