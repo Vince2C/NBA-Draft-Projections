@@ -7,9 +7,6 @@ import Auction from "./components/auction";
 import Snake from "./components/snake";
 import Playerpage from "./components/playerpage"
 
-import 'ag-grid-community/dist/styles/ag-grid.css';
-import 'ag-grid-community/dist/styles/ag-theme-alpine.css';
-
 ReactDOM.render(
   <BrowserRouter>
     <Routes>
