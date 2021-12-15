@@ -7,7 +7,7 @@ const apiRouter = require("./routes/api");
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-app.use(express.static(path.resolve(__dirname, "../dist")));
+app.use(express.static(path.resolve(__dirname, "../sgirc")));
 
 app.use("/api", apiRouter);
 
