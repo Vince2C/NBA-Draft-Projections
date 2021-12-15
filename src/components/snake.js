@@ -2,13 +2,51 @@ import React from "react";
 import { render } from "react-dom";
 import { AgGridColumn, AgGridReact } from "ag-grid-react";
 import { useNavigate } from "react-router-dom";
+import axios from 'axios';
+import { useEffect, useState } from "react";
 
-import "ag-grid-community/dist/styles/ag-grid.css";
-import "ag-grid-community/dist/styles/ag-theme-alpine.css";
+import 'ag-grid-community/dist/styles/ag-grid.css';
+import 'ag-grid-community/dist/styles/ag-theme-alpine.css';
+
+
 
 export default function Snake() {
   const navigate = useNavigate()
   const onCellClicked = (params) => navigate("/playerpage");
+  const [data, setData] = useState([]);
+
+  // useEffect(() => {
+  //   (async () => {
+  //     const result = await axios.get("localhost:3000/api");
+  //     setData(result.data);
+  //   })();
+  // }, []);
+
+  useEffect(() => {
+    fetch('/api/')
+    .then(res => res.json())
+    .then(console.log("this is data", data))
+    .then(data => setData(data))
+  }, [])
+  
+  
+
+//   useEffect(() => {
+//     const url = "localhost:3000/api";
+
+//     const fetchData = async () => {
+//       try {
+//         const response = await fetch(url);
+//         const json = await response.json();
+//         console.log(json);
+//       } catch (error) {
+//         console.log("error", error);
+//       }
+//     };
+
+//     fetchData();
+// }, []);
+
 
   const rowData = [
     {
