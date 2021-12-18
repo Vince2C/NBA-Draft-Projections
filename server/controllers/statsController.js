@@ -8,9 +8,6 @@ statsController.getPlayersData = async (req, res, next) => {
 //   console.log("this is res3", res);
   try {
     const playersData = await db.query(getStatsQuery);
-    console.log("this is playersData", playersData);
-    // console.log("This is playersdata", playersData);
-    // console.log("this is res", res);
     res.locals.playersData = playersData.rows;
     return next();
   } catch (err) {

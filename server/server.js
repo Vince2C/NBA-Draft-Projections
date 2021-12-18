@@ -7,7 +7,7 @@ const apiRouter = require("./routes/api");
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-app.use(express.static(path.resolve(__dirname, "../sgirc")));
+app.use(express.static(path.resolve(__dirname, "../src")));
 
 app.use("/api", apiRouter);
 
@@ -16,6 +16,7 @@ app.use((req, res) =>
 );
 
 app.use((err, req, res, next) => {
+  console.log(err);
   const defaultErr = {
     log: "Express error handler caught unknown middleware error",
     status: 500,
