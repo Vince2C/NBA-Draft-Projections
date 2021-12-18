@@ -4,7 +4,7 @@ const webpack = require("webpack");
 
 module.exports = {
   mode: "development",
-  entry: ["./src/index.js"],
+  entry: [path.resolve(__dirname, "./src/index.js")],
   output: {
     path: path.resolve(__dirname, "dist"),
     publicPath: "/",
@@ -19,7 +19,7 @@ module.exports = {
     // hot: true,
 
     // // fallback to root for other urls
-    // historyApiFallback: true,
+    historyApiFallback: true,
 
     headers: {
       "Access-Control-Allow-Origin": "*",

@@ -5,7 +5,8 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Auction from "./components/auction";
 import Snake from "./components/snake";
-import Playerpage from "./components/playerpage"
+import Playerpage from "./components/playerpage";
+import "./index.css";
 
 ReactDOM.render(
   <BrowserRouter>

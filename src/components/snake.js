@@ -6,7 +6,8 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 
 import "ag-grid-community/dist/styles/ag-grid.css";
-import "ag-grid-community/dist/styles/ag-theme-alpine.css";
+import "ag-grid-community/dist/styles/ag-theme-balham-dark.css";
+import "./auction.css";
 
 export default function Snake() {
   const navigate = useNavigate();
@@ -47,20 +48,27 @@ export default function Snake() {
       });
   }, []);
 
-  
-
   return (
-    <main style={{ padding: "1rem 0" }}>
+    <div className="auction_main">
       <h2>Snake Draft</h2>
-      <div className="ag-theme-alpine" style={{ height: 1000, width: '100%' }}>
+      <div
+        className="ag-theme-balham-dark"
+        style={{ height: "900px", width: "100%" }}
+      >
         <AgGridReact
           rowData={data}
           onCellClicked={onCellClicked}
           defaultColDef={{ sortable: true, filter: true }}
           pagination={true}
           columnDefs={colDefs}
+          onGridReady={(params) => {
+            // Following line to make the currently visible columns fit the screen
+            params.api.sizeColumnsToFit();
+            // Following line dymanic set height to row on content
+            params.api.resetRowHeights();
+          }}
         ></AgGridReact>
       </div>
-    </main>
+    </div>
   );
 }

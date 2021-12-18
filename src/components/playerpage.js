@@ -4,7 +4,7 @@ import { AgGridColumn, AgGridReact } from "ag-grid-react";
 import { useNavigate } from "react-router-dom";
 
 import "ag-grid-community/dist/styles/ag-grid.css";
-import "ag-grid-community/dist/styles/ag-theme-alpine.css";
+import "ag-grid-community/dist/styles/ag-theme-balham-dark.css";
 
 export default function Playerpage() {
   const navigate = useNavigate();
@@ -12,7 +12,6 @@ export default function Playerpage() {
   const rowData = [
     {
       year: "2021",
-      player: "Nikola Jokic",
       points: 26.4,
       assists: 8.3,
       rebounds: 10.8,
@@ -25,7 +24,6 @@ export default function Playerpage() {
     },
     {
       year: "2020",
-      player: "Nikola Jokic",
       points: 19.9,
       assists: 7.0,
       rebounds: 9.7,
@@ -38,7 +36,6 @@ export default function Playerpage() {
     },
     {
       year: "2019",
-      player: "Nikola Jokic",
       points: 20.1,
       assists: 7.3,
       rebounds: 10.8,
@@ -49,14 +46,57 @@ export default function Playerpage() {
       ftPercentage: 0.821,
       turnovers: 3.1,
     },
+    {
+      year: "2018",
+      points: 18.5,
+      assists: 5.5,
+      rebounds: 9.7,
+      steals: 1.0,
+      blocks: 1.2,
+      threes: 0.8,
+      fgPercentage: 514,
+      ftPercentage: 0.801,
+      turnovers: 3.4,
+    },
+    {
+      year: "2017",
+      points: 16.7,
+      assists: 5.4,
+      rebounds: 9.8,
+      steals: 1.3,
+      blocks: 1.1,
+      threes: 1.3,
+      fgPercentage: 497,
+      ftPercentage: 0.829,
+      turnovers: 2.3,
+    },
+    {
+      year: "2016",
+      points: 10.0,
+      assists: 2.3,
+      rebounds: 7.0,
+      steals: 1.,
+      blocks: 0.6,
+      threes: 0.4,
+      fgPercentage: 512,
+      ftPercentage: 0.811,
+      turnovers: 1.3,
+    },
   ];
   return (
-    <div style={{ padding: "1rem 0" }}>
-      <h2>Player Page</h2>
-      <div className="ag-theme-alpine" style={{ height: 1000, width: 2400 }}>
-        <AgGridReact rowData={rowData} >
+    <div>
+      <h2>Player Details - Nikola Jokic</h2>
+      <div className="ag-theme-balham-dark" style={{ height: "400px", width: "100%" }}>
+        <AgGridReact
+          rowData={rowData}
+          onGridReady={(params) => {
+            // Following line to make the currently visible columns fit the screen
+            params.api.sizeColumnsToFit();
+            // Following line dymanic set height to row on content
+            params.api.resetRowHeights();
+          }}
+        >
           <AgGridColumn field="year"></AgGridColumn>
-          <AgGridColumn field="player"></AgGridColumn>
           <AgGridColumn field="points"></AgGridColumn>
           <AgGridColumn field="assists"></AgGridColumn>
           <AgGridColumn field="rebounds"></AgGridColumn>

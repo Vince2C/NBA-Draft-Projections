@@ -1,0 +1,23 @@
+main {
+  height: 100%;
+  display: flex;
+  flex-direction: column; /* defined the main axis */
+  justify-content: center; /* y-axis */
+  align-items: center; /* x-axis */
+}
+
+.col {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 1;
+  height: 100%;
+}
+
+.row {
+  margin-top: 20px !important;
+}
+
+.btn {
+  width: 150px;
+}
