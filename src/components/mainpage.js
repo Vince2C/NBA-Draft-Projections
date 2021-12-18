@@ -23,7 +23,7 @@ export default function Mainpage() {
       <Container>
         <Row>
           <Col>
-            <h1>NBA Draft Projections 2022</h1>
+            <h1>NBA Draft Calculator</h1>
           </Col>
         </Row>
         <Row>

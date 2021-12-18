@@ -14,7 +14,9 @@ router.get("/auction/:budget", statsController.getPlayersData, (req, res) => {
   let data = [];
   for (let i = 0; i < res.locals.playersData.length; i++) {
     let newObj = { ...res.locals.playersData[i] };
-    newObj["totalBid"] = req.params.budget * newObj.Value / 3;
+    let num = req.params.budget * newObj.Value / 3;
+    let numFix = num.toFixed(2);
+    newObj["totalBid"] = numFix;
     data.push(newObj);
   }
   console.log(req.params);
